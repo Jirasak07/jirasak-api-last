@@ -11,29 +11,28 @@ var configdb = {
 };
 app.use(cors());
 app.listen(PORT, function () {
-  console.log("app runing port ",{PORT});
+  console.log("app runing port ", { PORT });
 });
-app.get('/',function(req,res,next){
-    res.send("API is Run!!")
-})
-app.get('/conn',function(req,res,next){
-     // connect to your database
-     sql.connect(configdb, function (err) {
-        if (err) console.log(err);
-    
-        // create Request object
-        var request = new sql.Request();
-    
-        // query to the database and get the records
-        request.query("select * from dbo.product", function (err, results) {
-          if (err) console.log(err);
-    
-          // send records as a response
-          res.send(results.recordset);
-          console.log(results.recordset)
-        });
-      });
-})
+app.get("/", function (req, res, next) {
+  res.send("API is Run!!");
+});
+app.get("/conn", function (req, res, next) {
+  // connect to your database
+  sql.connect(configdb, function (err) {
+    if (err) console.log(err);
 
+    // create Request object
+    var request = new sql.Request();
+
+    // query to the database and get the records
+    request.query("select * from dbo.product", function (err, results) {
+      if (err) console.log(err);
+
+      // send records as a response
+      res.send(results.recordset);
+      console.log(results.recordset);
+    });
+  });
+});
 
 module.exports = app;
