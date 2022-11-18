@@ -29,26 +29,26 @@ app.get("/", function (req, res, next) {
 
 app.post("/conn",jsonParser, function (req, res, next) {
   // connect to your database
-  sql.connect(configdb, function (err) {
-    if (err) console.log(err);
+  // sql.connect(configdb, function (err) {
+  //   if (err) console.log(err);
     // create Request object
-    var request = new sql.Request();
+    // var request = new sql.Request();
     // query to the database and get the records
     // var pid = 1234
     // var pname = 'req.body.pname'
-    var pid = req.body.pid
-    var pname = req.body.pname
-    request.query(`UPDATE dbo.product SET pid = ${pid},pname= '${pname}' WHERE pid = 1234   `, function (err, results) {
+    // var pid = req.body.pid
+    // var pname = req.body.pname
+    // request.query(`UPDATE dbo.product SET pid = ${pid},pname= '${pname}' WHERE pid = 1234   `, function (err, results) {
     // request.query(`INSERT INTO dbo.product (pid,pname) VALUES (${pid},'${pname}')  `, function (err, results) {
     // request.query(`select * from dbo.product where pid = ${value} `, function (err, results) {
-      if (err) console.log(err);
+      // if (err) console.log(err);
       // send records as a response
       // res.send(results.recordset);
-      res.json("success")
+      // res.json("success")
 
-      console.log(results.recordset);
-    });
-  });
+  //     console.log(results.recordset);
+  //   });
+  // });
 });
 // manage user
   // app.get("add-user",jsonParser,function(req,res,next){
