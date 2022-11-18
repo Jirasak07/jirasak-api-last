@@ -27,46 +27,29 @@ app.get("/", function (req, res, next) {
 
 // test Api
 
-// app.post("/conn",jsonParser, function (req, res, next) {
+app.post("/conn",jsonParser, function (req, res, next) {
   // connect to your database
-  // sql.connect(configdb, function (err) {
-  //   if (err) console.log(err);
+  sql.connect(configdb, function (err) {
+    if (err) console.log(err);
     // create Request object
-    // var request = new sql.Request();
+    var request = new sql.Request();
     // query to the database and get the records
     // var pid = 1234
     // var pname = 'req.body.pname'
-    // var pid = req.body.pid
-    // var pname = req.body.pname
-    // request.query(`UPDATE dbo.product SET pid = ${pid},pname= '${pname}' WHERE pid = 1234   `, function (err, results) {
+    var pid = req.body.pid
+    var pname = req.body.pname
+    request.query(`UPDATE dbo.product SET pid = ${pid},pname= '${pname}' WHERE pid = 1234   `, function (err, results) {
     // request.query(`INSERT INTO dbo.product (pid,pname) VALUES (${pid},'${pname}')  `, function (err, results) {
     // request.query(`select * from dbo.product where pid = ${value} `, function (err, results) {
-      // if (err) console.log(err);
+      if (err) console.log(err);
       // send records as a response
       // res.send(results.recordset);
-      // res.json("success")
+      res.json("success")
 
-  //     console.log(results.recordset);
-  //   });
-  // });
-// });
-// manage user
-  // app.get("add-user",jsonParser,function(req,res,next){
-  //   sql.connect(configdb,function(err){
-  //     if (err) console.log(err);
-  //   var requestGet = new sql.Request();
-  //   requestGet.query('SELECT max(uid) as maxuid FROM user ',function(err,resultsId){
-  //     res.json(resultsId.recordset.maxuid)
-  //   })
-  //   var username = req.body.username
-  //   var uid = 0
-  //   var uname = req.body.uname
-  //   var mid = req.body.mid
-  //   var role_id = req.body.role_id
-  //   var ustatus = req.body.ustatus
-  //   })
-  // })
-// end manage user
+      console.log(results.recordset);
+    });
+  });
+});
 // ${req.body.pid}
 // end test Api
 
@@ -76,4 +59,4 @@ app.get("/", function (req, res, next) {
 
 // end Product
 
-// module.exports = app;
+module.exports = app;
