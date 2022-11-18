@@ -50,23 +50,22 @@ app.post("/conn",jsonParser, function (req, res, next) {
     });
   });
 });
-
 // manage user
-  app.get("add-user",jsonParser,function(req,res,next){
-    sql.connect(configdb,function(err){
-      if (err) console.log(err);
-    var requestGet = new sql.Request();
-    requestGet.query('SELECT max(uid) as maxuid FROM user ',function(err,resultsId){
-      res.json(resultsId.recordset.maxuid)
-    })
-    var username = req.body.username
-    var uid = 0
-    var uname = req.body.uname
-    var mid = req.body.mid
-    var role_id = req.body.role_id
-    var ustatus = req.body.ustatus
-    })
-  })
+  // app.get("add-user",jsonParser,function(req,res,next){
+  //   sql.connect(configdb,function(err){
+  //     if (err) console.log(err);
+  //   var requestGet = new sql.Request();
+  //   requestGet.query('SELECT max(uid) as maxuid FROM user ',function(err,resultsId){
+  //     res.json(resultsId.recordset.maxuid)
+  //   })
+  //   var username = req.body.username
+  //   var uid = 0
+  //   var uname = req.body.uname
+  //   var mid = req.body.mid
+  //   var role_id = req.body.role_id
+  //   var ustatus = req.body.ustatus
+  //   })
+  // })
 // end manage user
 // ${req.body.pid}
 // end test Api
