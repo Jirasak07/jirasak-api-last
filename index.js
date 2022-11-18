@@ -27,7 +27,7 @@ app.get("/", function (req, res, next) {
 
 // test Api
 
-app.post("/conn",jsonParser, function (req, res, next) {
+// app.post("/conn",jsonParser, function (req, res, next) {
   // connect to your database
   // sql.connect(configdb, function (err) {
   //   if (err) console.log(err);
@@ -49,7 +49,7 @@ app.post("/conn",jsonParser, function (req, res, next) {
   //     console.log(results.recordset);
   //   });
   // });
-});
+// });
 // manage user
   // app.get("add-user",jsonParser,function(req,res,next){
   //   sql.connect(configdb,function(err){
