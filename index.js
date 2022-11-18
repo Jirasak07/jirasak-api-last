@@ -7,4 +7,7 @@ app.listen(PORT, function () {
 app.get("/", function (req, res, next) {
   res.send("API is Run!!");
 });
+app.get('/gg',function(req,res,next){
+  res.send("APII IIII")
+})
 module.exports = app;
